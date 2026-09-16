@@ -33,11 +33,6 @@ public sealed class FundamentalObservationConfiguration : IEntityTypeConfigurati
             .HasConversion(UtcDateTimeConverters.NonNullable)
             .IsRequired();
 
-        // Nullable: some features genuinely never have a published market forecast.
-        // No .IsRequired() call here - that would force NOT NULL at the DB level,
-        // contradicting the CLR decimal? type EF Core already maps as nullable by convention.
-        builder.Property(o => o.ForecastValue);
-
         builder.Property(o => o.Value)
             .IsRequired();
 
