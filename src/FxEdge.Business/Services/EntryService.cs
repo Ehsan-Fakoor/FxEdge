@@ -3,7 +3,6 @@ using FxEdge.Business.Catalog;
 using FxEdge.Business.Entities;
 using FxEdge.Business.ValueObjects;
 using FxEdge.Contracts.Dtos.Entries;
-using FxEdge.Contracts.Enums;
 using FxEdge.Contracts.Services;
 
 namespace FxEdge.Business.Services;
@@ -140,16 +139,12 @@ public sealed class EntryService : IEntryService
         s.Feature,
         s.Polarity,
         s.BaseValue,
-        s.BaseForecastValue,
         s.BasePreviousValue,
-        s.BaseActualVsForecast,
         s.BaseActualVsPrevious,
         s.BaseAnnouncementAtUtc,
         s.BaseNormalizedValue,
         s.QuoteValue,
-        s.QuoteForecastValue,
         s.QuotePreviousValue,
-        s.QuoteActualVsForecast,
         s.QuoteActualVsPrevious,
         s.QuoteAnnouncementAtUtc,
         s.QuoteNormalizedValue,

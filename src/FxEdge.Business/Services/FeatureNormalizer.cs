@@ -9,7 +9,6 @@ namespace FxEdge.Business.Services;
 /// SampleStdDev are computed exclusively from that same Currency+Feature's
 /// observations announced at or before AsOfUtc (the current value itself is one of
 /// them). This is what feeds FxEdge.Business.Services.DifferentialCalculator - raw
-/// Value/ForecastValue/PreviousValue and their derived ActualVs* figures (produced by
 /// PointInTimeResolver) are left untouched everywhere else.
 ///
 /// Kept point-in-time for the same reason as everything else in this system: computing

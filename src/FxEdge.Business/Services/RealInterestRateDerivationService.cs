@@ -53,17 +53,16 @@ internal sealed class RealInterestRateDerivationService
         }
 
         var value = centralBank.Value - coreCpi.Value;
-        var forecastValue = centralBank.ForecastValue - coreCpi.ForecastValue;
 
         var existing = await _repository.GetExactAsync(currency, FundamentalFeature.RealInterestRate, announcementAtUtc, ct);
         if (existing is null)
         {
-            var derived = FundamentalObservation.Create(currency, FundamentalFeature.RealInterestRate, announcementAtUtc, forecastValue, value);
+            var derived = FundamentalObservation.Create(currency, FundamentalFeature.RealInterestRate, announcementAtUtc, value);
             await _repository.AddAsync(derived, ct);
         }
         else
         {
-            existing.Overwrite(currency, FundamentalFeature.RealInterestRate, announcementAtUtc, forecastValue, value);
+            existing.Overwrite(currency, FundamentalFeature.RealInterestRate, announcementAtUtc, value);
         }
     }
 }
