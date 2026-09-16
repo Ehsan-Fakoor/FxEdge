@@ -13,5 +13,4 @@ public sealed record EditObservationRequest(
     Currency Currency,
     FundamentalFeature Feature,
     DateTime AnnouncementAtUtc,
-    decimal? ForecastValue,
     decimal Value);
