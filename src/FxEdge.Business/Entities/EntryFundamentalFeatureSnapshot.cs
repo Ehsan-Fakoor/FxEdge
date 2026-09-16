@@ -20,9 +20,7 @@ public sealed class EntryFundamentalFeatureSnapshot
     public int Polarity { get; private set; }
 
     public decimal? BaseValue { get; private set; }
-    public decimal? BaseForecastValue { get; private set; }
     public decimal? BasePreviousValue { get; private set; }
-    public decimal? BaseActualVsForecast { get; private set; }
     public decimal? BaseActualVsPrevious { get; private set; }
     public DateTime? BaseAnnouncementAtUtc { get; private set; }
 
@@ -30,9 +28,7 @@ public sealed class EntryFundamentalFeatureSnapshot
     public decimal? BaseNormalizedValue { get; private set; }
 
     public decimal? QuoteValue { get; private set; }
-    public decimal? QuoteForecastValue { get; private set; }
     public decimal? QuotePreviousValue { get; private set; }
-    public decimal? QuoteActualVsForecast { get; private set; }
     public decimal? QuoteActualVsPrevious { get; private set; }
     public DateTime? QuoteAnnouncementAtUtc { get; private set; }
 
@@ -60,17 +56,13 @@ public sealed class EntryFundamentalFeatureSnapshot
         Polarity = polarity;
 
         BaseValue = baseFeature.Value;
-        BaseForecastValue = baseFeature.ForecastValue;
         BasePreviousValue = baseFeature.PreviousValue;
-        BaseActualVsForecast = baseFeature.ActualVsForecast;
         BaseActualVsPrevious = baseFeature.ActualVsPrevious;
         BaseAnnouncementAtUtc = baseFeature.AnnouncementAtUtc;
         BaseNormalizedValue = baseNormalizedValue;
 
         QuoteValue = quoteFeature.Value;
-        QuoteForecastValue = quoteFeature.ForecastValue;
         QuotePreviousValue = quoteFeature.PreviousValue;
-        QuoteActualVsForecast = quoteFeature.ActualVsForecast;
         QuoteActualVsPrevious = quoteFeature.ActualVsPrevious;
         QuoteAnnouncementAtUtc = quoteFeature.AnnouncementAtUtc;
         QuoteNormalizedValue = quoteNormalizedValue;
