@@ -37,7 +37,7 @@ public static class ObservationEndpoints
         {
             try
             {
-                var request = new EditObservationRequest(id, body.Currency, body.Feature, body.AnnouncementAtUtc, body.ForecastValue, body.Value);
+                var request = new EditObservationRequest(id, body.Currency, body.Feature, body.AnnouncementAtUtc, body.Value);
                 var updated = await service.EditAsync(request, ct);
                 return Results.Ok(updated);
             }
@@ -77,6 +77,5 @@ public static class ObservationEndpoints
         Currency Currency,
         FundamentalFeature Feature,
         DateTime AnnouncementAtUtc,
-        decimal? ForecastValue,
         decimal Value);
 }
