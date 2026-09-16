@@ -31,7 +31,7 @@ public sealed class ObservationService : IObservationService
         }
 
         var observation = FundamentalObservation.Create(
-            request.Currency, request.Feature, request.AnnouncementAtUtc, request.ForecastValue, request.Value);
+            request.Currency, request.Feature, request.AnnouncementAtUtc, request.Value);
 
         await _repository.AddAsync(observation, ct);
         await _repository.SaveChangesAsync(ct);
@@ -55,7 +55,7 @@ public sealed class ObservationService : IObservationService
                 $"Another observation for {request.Currency}/{request.Feature} at {request.AnnouncementAtUtc:O} already exists.");
         }
 
-        observation.Overwrite(request.Currency, request.Feature, request.AnnouncementAtUtc, request.ForecastValue, request.Value);
+        observation.Overwrite(request.Currency, request.Feature, request.AnnouncementAtUtc, request.Value);
         await _repository.SaveChangesAsync(ct);
 
         await DeriveIfTriggerAsync(request.Currency, request.Feature, request.AnnouncementAtUtc, ct);
@@ -103,6 +103,5 @@ public sealed class ObservationService : IObservationService
         observation.Currency,
         observation.Feature,
         observation.AnnouncementAtUtc,
-        observation.ForecastValue,
         observation.Value);
 }
