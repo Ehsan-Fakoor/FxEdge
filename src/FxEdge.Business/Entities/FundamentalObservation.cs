@@ -23,7 +23,6 @@ public sealed class FundamentalObservation
     /// <summary>UTC date+time the figure was announced/published.</summary>
     public DateTime AnnouncementAtUtc { get; private set; }
 
-    public decimal? ForecastValue { get; private set; }
     public decimal Value { get; private set; }
 
     // EF Core materialization constructor.
@@ -36,35 +35,30 @@ public sealed class FundamentalObservation
         Currency currency,
         FundamentalFeature feature,
         DateTime announcementAtUtc,
-        decimal? forecastValue,
         decimal value)
     {
         Id = id;
         Currency = currency;
         Feature = feature;
         AnnouncementAtUtc = announcementAtUtc;
-        ForecastValue = forecastValue;
         Value = value;
     }
 
     /// <summary>
     /// Records a newly published figure as a brand-new, independent observation.
     /// The Id is generated here (Application-generated Guid), never by the database.
-    /// ForecastValue may be null - some features genuinely never have a published
-    /// market forecast; Value is always required (an observation only exists once the
-    /// actual figure is known).
+    /// Value is always required (an observation only exists once the actual figure is known).
     /// </summary>
     public static FundamentalObservation Create(
         Currency currency,
         FundamentalFeature feature,
         DateTime announcementAtUtc,
-        decimal? forecastValue,
         decimal value)
     {
         var normalizedAt = DateTimeUtc.Normalize(announcementAtUtc);
         Validate(currency, feature, normalizedAt);
 
-        return new FundamentalObservation(Guid.NewGuid(), currency, feature, normalizedAt, forecastValue, value);
+        return new FundamentalObservation(Guid.NewGuid(), currency, feature, normalizedAt, value);
     }
 
     /// <summary>
@@ -75,7 +69,6 @@ public sealed class FundamentalObservation
         Currency currency,
         FundamentalFeature feature,
         DateTime announcementAtUtc,
-        decimal? forecastValue,
         decimal value)
     {
         var normalizedAt = DateTimeUtc.Normalize(announcementAtUtc);
@@ -84,7 +77,6 @@ public sealed class FundamentalObservation
         Currency = currency;
         Feature = feature;
         AnnouncementAtUtc = normalizedAt;
-        ForecastValue = forecastValue;
         Value = value;
     }
 
