@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FxEdge.Business/FxEdge.Business.csproj" />
+    <Project Path="src/FxEdge.Contracts/FxEdge.Contracts.csproj" />
+    <Project Path="src/FxEdge.DataAccess/FxEdge.DataAccess.csproj" />
+    <Project Path="src/FxEdge.Endpoints/FxEdge.Endpoints.csproj" />
+    <Project Path="src/FxEdge.Host/FxEdge.Host.csproj" />
+  </Folder>
+</Solution>

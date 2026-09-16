@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\FxEdge.Business\FxEdge.Business.csproj" />
+    <ProjectReference Include="..\FxEdge.DataAccess\FxEdge.DataAccess.csproj" />
+    <ProjectReference Include="..\FxEdge.Endpoints\FxEdge.Endpoints.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- dotnet-ef requires the STARTUP project to reference Design directly, even
+         though DataAccess (PrivateAssets="all") already references it for its own
+         IDesignTimeDbContextFactory implementation. Keep this version identical to
+         DataAccess's to avoid a Microsoft.CodeAnalysis (Roslyn) version conflict. -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

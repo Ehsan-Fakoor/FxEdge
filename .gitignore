@@ -1,0 +1,13 @@
+## Build artifacts
+bin/
+obj/
+
+## SQLite local database (personal, machine-specific data - never commit real market data)
+*.db
+*.db-shm
+*.db-wal
+
+## IDE
+.vs/
+.idea/
+*.user
